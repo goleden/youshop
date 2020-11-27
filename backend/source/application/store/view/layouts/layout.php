@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="assets/store/css/app.css?v=<?= $version ?>"/>
     <link rel="stylesheet" href="//at.alicdn.com/t/font_783249_2lw7e3x57vx.css">
     <script src="assets/common/js/jquery.min.js"></script>
-    <script src="assets/admin/js/font_783249_e5yrsf08rap.js"></script>
+    <script src="//at.alicdn.com/t/font_783249_e5yrsf08rap.js"></script>
     <script>
         BASE_URL = '<?= isset($base_url) ? $base_url : '' ?>';
         STORE_URL = '<?= isset($store_url) ? $store_url : '' ?>';

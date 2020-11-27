@@ -12,8 +12,7 @@
     <meta name="apple-mobile-web-app-title" content="运营管理系统"/>
     <link rel="stylesheet" href="assets/common/css/amazeui.min.css"/>
     <link rel="stylesheet" href="assets/admin/css/app.css"/>
-    <link rel="stylesheet" href="assets/admin/css/font_783249_c9du3u6ahxp.css">
-    <!-- <link rel="stylesheet" href="//at.alicdn.com/t/font_783249_c9du3u6ahxp.css"> -->
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_783249_c9du3u6ahxp.css">
     <script src="assets/common/js/jquery.min.js"></script>
     <script>
         BASE_URL = '<?= isset($base_url) ? $base_url : '' ?>';
