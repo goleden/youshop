@@ -2,10 +2,10 @@
 
 // 数据库配置
 $config = [
-    'host' => '127.0.0.1',
-    'database' => 'yoshop_pro',
+    'host' => 'mysql',
+    'database' => 'shop_youshop',
     'username' => 'root',
-    'password' => 'root',
+    'password' => '123456',
     'port' => '3306',
     'charset' => 'utf8',
 ];
