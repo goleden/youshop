@@ -84,7 +84,7 @@ function write_log($values, $dir)
  * @param $value
  * @param string $type
  */
-function log_write($value, $type = 'yoshop-info')
+function log_write($value, $type = 'info')
 {
     $msg = is_string($value) ? $value : var_export($value, true);
     Log::record($msg, $type);
