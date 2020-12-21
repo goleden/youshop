@@ -18,6 +18,9 @@ class Setting extends EnumBasics
     // 短信通知
     const SMS = 'sms';
 
+    // 公众号通知
+    const OFFIACCOUT = 'offiaccount';
+
     // 模板消息
     const TPL_MSG = 'tplMsg';
 
@@ -51,6 +54,10 @@ class Setting extends EnumBasics
             self::SMS => [
                 'value' => self::SMS,
                 'describe' => '短信通知',
+            ],
+            self::OFFIACCOUT => [
+                'value' => self::OFFIACCOUT,
+                'describe' => '公众号通知',
             ],
             self::TPL_MSG => [
                 'value' => self::TPL_MSG,

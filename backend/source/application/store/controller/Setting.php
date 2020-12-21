@@ -34,6 +34,16 @@ class Setting extends Controller
     }
 
     /**
+     * 公众号通知
+     * @return mixed
+     * @throws \think\exception\DbException
+     */
+    public function offiaccount()
+    {
+        return $this->updateEvent('offiaccount');
+    }
+
+    /**
      * 短信通知
      * @return mixed
      * @throws \think\exception\DbException
@@ -122,7 +132,7 @@ class Setting extends Controller
             $vars['values'] = SettingModel::getItem($key);
             return $this->fetch($key, $vars);
         }
-        $model = new SettingModel;
+        $model = new SettingModel();
         if ($model->edit($key, $this->postData($key))) {
             return $this->renderSuccess('操作成功');
         }

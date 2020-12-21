@@ -505,9 +505,13 @@ return [
                     'setting.express/edit',
                 ],
             ],
+            // [
+            //     'name' => '短信通知',
+            //     'index' => 'setting/sms'
+            // ],
             [
-                'name' => '短信通知',
-                'index' => 'setting/sms'
+                'name' => '公众号通知',
+                'index' => 'setting/offiaccount'
             ],
             [
                 'name' => '模板消息',
