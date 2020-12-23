@@ -173,6 +173,20 @@ class Setting extends BaseModel
                     ],
                 ],
             ],
+            'offiaccount' => [
+                'key' => 'offiaccount',
+                'describe' => '公众号通知',
+                'values' => [
+                    'AppId' => '',
+                    'AppSecret' => '',
+                    'Token' => '',
+                    'order_pay' => [
+                        'is_enable' => '0',
+                        'template_id' => '',
+                        'openid' => '',
+                    ],
+                ],
+            ],
             'tplMsg' => [
                 'key' => 'tplMsg',
                 'describe' => '模板消息',
