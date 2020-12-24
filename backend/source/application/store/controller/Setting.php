@@ -5,6 +5,7 @@ namespace app\store\controller;
 use app\store\model\Printer as PrinterModel;
 use app\store\model\Setting as SettingModel;
 use app\common\library\sms\Driver as SmsDriver;
+use think\Log;
 
 /**
  * 系统设置
@@ -40,7 +41,29 @@ class Setting extends Controller
      */
     public function offiaccount()
     {
-        return $this->updateEvent('offiaccount');
+        if (!$this->request->isAjax()) {
+            $wechatManager = [
+                'qrcode' => ''
+            ];
+            try {
+                $values = SettingModel::getItem('offiaccount');
+                // 公众号关注二维码
+                $config = SettingModel::getEasywechatOfficialAccountConfig();
+                $app = \EasyWeChat\Factory::officialAccount($config);
+                $scene = "offiaccount";
+                $qrcode = $app->qrcode->temporary($scene, 600);
+                $wechatManager['qrcode'] = $app->qrcode->url($qrcode['ticket']);
+
+                // 管理员信息
+                if (!empty($values['order_pay']['openid'])) {
+                    $wechatManager['userInfo'] = $app->user->get($values['order_pay']['openid']);
+                }
+            } catch (\Exception $e) {
+                Log::record($e->getMessage(), 'error');
+            }
+            $vars = ['wechatManager' => $wechatManager];
+        }
+        return $this->updateEvent('offiaccount', $vars ?? []);
     }
 
     /**

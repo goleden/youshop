@@ -5,12 +5,13 @@ namespace app\api\controller;
 use app\api\model\Setting as SettingModel;
 use app\common\enum\Setting as SettingEnum;
 use think\Log;
+use think\Controller;
 
 /**
  * 微信公众号接口
  * @package app\task\controller
  */
-class Officeaccout
+class Officeaccout extends Controller
 {
     protected $message;
     protected $openid;
@@ -22,21 +23,7 @@ class Officeaccout
 
     public function _initialize()
     {
-        $officialAccount = SettingModel::getItem(SettingEnum::OFFIACCOUT);
-        $this->app = \EasyWeChat\Factory::officialAccount([
-            'app_id' => $officialAccount['AppId'],
-            'secret' => $officialAccount['AppSecret'],
-            'token' => $officialAccount['Token'],
-        
-            // 下面为可选项
-            // 指定 API 调用返回结果的类型：array(default)/collection/object/raw/自定义类名
-            'response_type' => 'array',
-        
-            'log' => [
-                'level' => 'debug',
-                'file' => LOG_PATH . 'wechat.log',
-            ],
-        ]);
+        $this->app = \EasyWeChat\Factory::officialAccount(SettingModel::getEasywechatOfficialAccountConfig());
     }
 
     /**
@@ -120,14 +107,12 @@ class Officeaccout
             return '';
         }
         $scene = $this->subscribeScene;
-        list($key, $token) = explode('_', $scene);
-        if (empty($key) || empty($token)) {
+        if (empty($scene)) {
             return '';
         }
 
-        if ($key == SettingEnum::OFFIACCOUT) {
-            // checkToken
-            
+        if ($scene == SettingEnum::OFFIACCOUT) {
+            // 更新管理员openid
             $config = SettingModel::getItem(SettingEnum::OFFIACCOUT);
             $config['order_pay']['openid'] = $this->openid;
             $model = new SettingModel();
@@ -140,8 +125,6 @@ class Officeaccout
      * 自定义菜单
      *
      * @return void
-     * @author guoruidian
-     * @date 2020-04-21
      */
     public function menu()
     {

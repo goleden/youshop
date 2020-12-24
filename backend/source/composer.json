@@ -28,7 +28,6 @@
     "topthink/framework": "5.0.*",
     "qiniu/php-sdk": "^7.2",
     "aliyuncs/oss-sdk-php": "^2.3",
-    "qcloud/cos-sdk-v5": "^1.2",
     "kosinix/grafika": "dev-master",
     "myclabs/php-enum": "^1.6",
     "lvht/geohash": "^1.1",
