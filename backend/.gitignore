@@ -1,6 +1,7 @@
 .idea
 composer.lock
 *.log
+.env
 
 *.css.map
 .sass-cache

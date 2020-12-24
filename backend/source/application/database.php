@@ -1,13 +1,16 @@
 <?php
 
 // 数据库配置
+
+use think\Env;
+
 $config = [
-    'host' => 'mysql',
-    'database' => 'shop_youshop',
-    'username' => 'root',
-    'password' => '123456',
-    'port' => '3306',
-    'charset' => 'utf8',
+    'host' => Env::get('database.host', '127.0.0.1'),
+    'database' => Env::get('database.database', 'shop_youshop'),
+    'username' => Env::get('database.username', 'root'),
+    'password' => Env::get('database.password', ''),
+    'port' => Env::get('database.port', '3306'),
+    'charset' => Env::get('database.charset', 'utf8'),
 ];
 
 return [

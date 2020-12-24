@@ -67,8 +67,8 @@
                             <div class="am-form-group">
                                 <label class="am-u-sm-3 am-form-label form-require"> 绑定管理员微信 </label>
                                 <div class="am-u-sm-9">
-                                    <img style="width: 200px;" src="https://e.topthink.com/Uploads/Picture/2020-11-27/5fc1194845d61.jpg">
-                                    <small>当前管理员："<?= $values['order_pay']['bind_nickname'] ?? '暂未设置管理员' ?>"</small>
+                                    <img style="width: 200px;" src="<?= $wechatManager['qrcode'] ?>">
+                                    <small>当前管理员："<?= $wechatManager['userInfo']['nickname'] ?? '暂未绑定管理员微信' ?>"</small>
                                     <div class="help-block">
                                         <small>注：请用管理员的微信扫码绑定，系统收到订单将通过微信公众号通知。10分钟内扫码有效，否则刷新页面重新获取。</small>
                                     </div>
