@@ -606,6 +606,7 @@ class BucketTest extends \PHPUnit_Framework_TestCase
                         )
                     )
                 ));
+            sleep(3);
             $result = $this->cosClient->getBucketLifecycle(array(
                 // Bucket is required
                 'Bucket' => $this->bucket,
@@ -777,27 +778,6 @@ class BucketTest extends \PHPUnit_Framework_TestCase
             $this->assertFalse(true, $e);
         }
     }
-
-    /*
-     * Copy大文件
-     * 200
-     */
-    public function testCopyBigFile()
-    {
-        try {
-            $this->cosClient->createBucket(array('Bucket' => $this->bucket));
-            $this->cosClient->Copy($bucket = $this->bucket,
-                $key = 'test10G',
-                $copysource = 'lewzylu01-1251668577.cos.ap-guangzhou.myqcloud.com/test10G');
-            $rt = $this->cosClient->headObject(array('Bucket' => $this->$bucket,
-                'Key' => 'test10G'));
-            assertTrue(true, $rt['ContentLength'] == 10485760000);
-
-        } catch (ServiceResponseException $e) {
-            $this->assertFalse(true, $e);
-        }
-    }
-
 
     /*
      * 上传文件Bucket不存在
