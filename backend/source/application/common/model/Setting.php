@@ -4,6 +4,7 @@ namespace app\common\model;
 
 use think\Cache;
 use app\common\enum\DeliveryType as DeliveryTypeEnum;
+use app\common\enum\Setting as SettingEnum;
 
 /**
  * 系统设置模型
@@ -45,6 +46,30 @@ class Setting extends BaseModel
     {
         $data = self::getAll($wxapp_id);
         return isset($data[$key]) ? $data[$key]['values'] : [];
+    }
+
+    /**
+     * 微信公众号配置
+     *
+     * @return void
+     */
+    public static function getEasywechatOfficialAccountConfig()
+    {
+        $officialAccount = static::getItem(SettingEnum::OFFIACCOUT);
+        return [
+            'app_id' => $officialAccount['AppID'],
+            'secret' => $officialAccount['AppSecret'],
+            'token' => $officialAccount['Token'],
+        
+            // 下面为可选项
+            // 指定 API 调用返回结果的类型：array(default)/collection/object/raw/自定义类名
+            'response_type' => 'array',
+        
+            'log' => [
+                'level' => 'debug',
+                'file' => LOG_PATH . 'wechat.log',
+            ],
+        ];
     }
 
     /**
@@ -170,6 +195,20 @@ class Setting extends BaseModel
                                 'accept_phone' => '',
                             ],
                         ],
+                    ],
+                ],
+            ],
+            'offiaccount' => [
+                'key' => 'offiaccount',
+                'describe' => '公众号通知',
+                'values' => [
+                    'AppID' => '',
+                    'AppSecret' => '',
+                    'Token' => '',
+                    'order_pay' => [
+                        'is_enable' => '0',
+                        'template_id' => '',
+                        'openid' => '',
                     ],
                 ],
             ],
