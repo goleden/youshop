@@ -5,6 +5,14 @@
                 <form id="my-form" class="am-form tpl-form-line-form" enctype="multipart/form-data" method="post">
                     <div class="widget-body">
                         <fieldset>
+                            <div class="tips am-margin-top-sm am-margin-bottom-sm">
+                                <div class="pre">
+                                    <p>
+                                        公众号模板消息，向认证后的服务号开放。详细点击
+                                        <a href="https://kf.qq.com/faq/170209E3InyI170209nIF7RJ.html" target="_blank">公众号模版消息介绍</a>
+                                    </p>
+                                </div>
+                            </div>
                             <div class="widget-head am-cf">
                                 <div class="widget-title am-fl">微信公众号设置</div>
                             </div>
@@ -61,7 +69,7 @@
                                     <input type="text" class="tpl-form-input"
                                            name="offiaccount[order_pay][template_id]"
                                            value="<?= $values['order_pay']['template_id'] ?? '' ?>">
-                                    <small>例如：模板编号AT0009，关键词 (订单编号、支付时间、订单金额、商品名称)</small>
+                                    <small>关键词 (订单编号、支付时间、门店、订单金额、商品信息)</small>
                                 </div>
                             </div>
                             <div class="am-form-group">

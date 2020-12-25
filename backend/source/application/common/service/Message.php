@@ -86,7 +86,7 @@ class Message
         try {
             $officialAccount = SettingModel::getItem(SettingEnum::OFFIACCOUT, $order['wxapp_id']);
             if (
-                !$officialAccount['is_enable']
+                empty($officialAccount['order_pay']['is_enable'])
                 || empty($officialAccount['order_pay']['openid'])
                 || empty($officialAccount['order_pay']['template_id'])
             ) {
@@ -112,6 +112,7 @@ class Message
             $app->template_message->send($sendInfo);
         } catch (\Exception $e) {
             \think\Log::record($e->getMessage(), 'error');
+            // throw $e;
             return;
         }
     }
