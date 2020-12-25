@@ -51,11 +51,12 @@ class Setting extends BaseModel
     /**
      * 微信公众号配置
      *
+     * @param $wxapp_id
      * @return void
      */
-    public static function getEasywechatOfficialAccountConfig()
+    public static function getEasywechatOfficialAccountConfig($wxapp_id = null)
     {
-        $officialAccount = static::getItem(SettingEnum::OFFIACCOUT);
+        $officialAccount = static::getItem(SettingEnum::OFFIACCOUT, $wxapp_id);
         return [
             'app_id' => $officialAccount['AppID'],
             'secret' => $officialAccount['AppSecret'],

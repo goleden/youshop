@@ -18,7 +18,7 @@
                             <div class="am-form-group">
                                 <label class="am-u-sm-3 am-form-label form-require"> AppSecret </label>
                                 <div class="am-u-sm-9">
-                                    <input type="text" class="tpl-form-input"
+                                    <input type="password" class="tpl-form-input"
                                            name="offiaccount[AppSecret]"
                                            value="<?= $values['AppSecret'] ?? '' ?>" required>
                                 </div>
@@ -76,8 +76,8 @@
                             </div>
                             <div class="am-form-group">
                                 <div class="am-u-sm-9 am-u-sm-push-3 am-margin-top-lg">
-                                    <button type="submit" class="j-submit am-btn am-btn-secondary">提交
-                                    </button>
+                                    <input type="hidden" name="offiaccount[order_pay][openid]" value="<?= $values['order_pay']['openid'] ?: '' ?>">
+                                    <button type="submit" class="j-submit am-btn am-btn-secondary">提交</button>
                                 </div>
                             </div>
                         </fieldset>

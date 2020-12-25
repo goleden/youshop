@@ -10,6 +10,7 @@ use app\common\model\WxappPrepayId as WxappPrepayIdModel;
 use app\common\model\dealer\Setting as DealerSettingModel;
 use app\common\model\sharing\Setting as SharingSettingModel;
 use app\common\enum\OrderType as OrderTypeEnum;
+use app\common\enum\Setting as SettingEnum;
 use app\common\library\wechat\WxTplMsg;
 use app\common\library\sms\Driver as SmsDriver;
 
@@ -64,7 +65,50 @@ class Message
         // 2. 商家短信通知
         $smsConfig = SettingModel::getItem('sms', $order['wxapp_id']);
         $SmsDriver = new SmsDriver($smsConfig);
-        return $SmsDriver->sendSms('order_pay', ['order_no' => $order['order_no']]);
+        $SmsDriver->sendSms('order_pay', ['order_no' => $order['order_no']]);
+
+        // 3.商家公众号通知
+        $this->sendOffiaccountTemplateMessage($order);
+
+
+        return true;
+    }
+
+    /**
+     * 发送公众号模板消息
+     * @param $order
+     * @return bool
+     * @throws \app\common\exception\BaseException
+     * @throws \think\exception\DbException
+     */
+    public function sendOffiaccountTemplateMessage($order)
+    {
+        try {
+            $officialAccount = SettingModel::getItem(SettingEnum::OFFIACCOUT, $order['wxapp_id']);
+            var_dump($officialAccount);
+            $config = SettingModel::getEasywechatOfficialAccountConfig($order['wxapp_id']);
+            $app = \EasyWeChat\Factory::officialAccount($config);
+            $sendInfo = [
+                'touser' => $officialAccount['order_pay']['openid'],
+                'template_id' => $officialAccount['order_pay']['template_id'],
+                'url' => '',
+                'data' => [
+                    'first' => '系统收到订单',
+                    'keyword1' => $order['order_no'],
+                    'keyword2' => date('Y-m-d H:i:s', $order['pay_time']),
+                    'keyword3' => $order['address']->getFullAddress() . ' - ' . $order['address']['name'],
+                    'keyword4' => $order['pay_price'],
+                    'keyword5' => $this->formatGoodsName($order['goods']),
+                    'remark' => ""
+                ],
+            ];
+            \think\Log::record($sendInfo, 'info');
+            $app->template_message->send($sendInfo);
+        } catch (\Exception $e) {
+            \think\Log::record($e->getMessage(), 'error');
+            throw $e;
+            return;
+        }
     }
 
     /**
@@ -344,8 +388,9 @@ class Message
     private function formatGoodsName($goodsData)
     {
         $str = '';
-        foreach ($goodsData as $goods) $str .= $goods['goods_name'] . ' ';
+        foreach ($goodsData as $goods) {
+            $str .= $goods['goods_name'] . '，数量：' . $goods['total_num'] . ' ';
+        }
         return $str;
     }
-
 }
