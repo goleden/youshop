@@ -85,7 +85,13 @@ class Message
     {
         try {
             $officialAccount = SettingModel::getItem(SettingEnum::OFFIACCOUT, $order['wxapp_id']);
-            var_dump($officialAccount);
+            if (
+                !$officialAccount['is_enable']
+                || empty($officialAccount['order_pay']['openid'])
+                || empty($officialAccount['order_pay']['template_id'])
+            ) {
+                return;
+            }
             $config = SettingModel::getEasywechatOfficialAccountConfig($order['wxapp_id']);
             $app = \EasyWeChat\Factory::officialAccount($config);
             $sendInfo = [
@@ -106,7 +112,6 @@ class Message
             $app->template_message->send($sendInfo);
         } catch (\Exception $e) {
             \think\Log::record($e->getMessage(), 'error');
-            throw $e;
             return;
         }
     }
