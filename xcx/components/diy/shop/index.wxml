@@ -1,7 +1,7 @@
 <!-- 辅助空白 -->
 <view class="diy-shop">
   <view class="shop-item" wx:for="{{ dataList }}" wx:for-item="dataItem" wx:key="this">
-    <form bindsubmit="_onTargetDetail" report-submit="true">
+    <form bindsubmit="_onTargetDetail">
       <button formType="submit" class="btn-normal dis-flex flex-y-center" data-id="{{ dataItem.shop_id }}">
         <view class="shop-item__logo">
           <image class="image" src="{{ dataItem.logo_image }}"></image>

@@ -208,24 +208,40 @@ Page({
       }
 
       // 发起微信支付
-      if (result.data.pay_type == PayTypeEnum.WECHAT.value) {
-        App.wxPayment({
-          payment: result.data.payment,
-          success: res => {
-            _this.redirectToOrderIndex();
-          },
-          fail: res => {
-            App.showError(result.msg.error, () => {
+      switch (result.data.pay_type) {
+        case PayTypeEnum.WECHAT.value:
+          App.wxPayment({
+            payment: result.data.payment,
+            success: res => {
+              _this.redirectToOrderIndex();
+            },
+            fail: res => {
+              App.showError(result.msg.error, () => {
+                _this.redirectToOrderIndex();
+              });
+            },
+          });
+          break;
+      
+        default:
+          App._post_form('user.order/pay', {
+            order_id: result.data.order_id,
+            payType: result.data.pay_type
+          }, result => {
+            if (result.code === -10) {
+              App.showError(result.msg.error, () => {
+                _this.redirectToOrderIndex();
+              });
+              return false;
+            }
+            // 余额支付/线下支付
+            App.showSuccess(result.msg.success, () => {
               _this.redirectToOrderIndex();
             });
-          },
-        });
-      }
-      // 余额支付
-      if (result.data.pay_type == PayTypeEnum.BALANCE.value) {
-        App.showSuccess(result.msg.success, () => {
-          _this.redirectToOrderIndex();
-        });
+          }, null, () => {
+            wx.hideLoading();
+          });
+          break;
       }
     };
 
@@ -349,7 +365,7 @@ Page({
   onSelectPayType(e) {
     let _this = this;
     // 记录formId
-    App.saveFormId(e.detail.formId);
+    // App.saveFormId(e.detail.formId)
     // 设置当前支付方式
     _this.setData({
       curPayType: e.currentTarget.dataset.value

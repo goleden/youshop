@@ -24,7 +24,7 @@
     </view>
     <!-- 订单导航栏 -->
     <view class="order-navbar">
-      <form bindsubmit="onTargetOrder" data-type="all" report-submit="true">
+      <form bindsubmit="onTargetOrder" data-type="all">
         <button formType="submit" class="btn-normal">
           <view class="order-navbar-header dis-flex">
             <text class="f-30">我的订单</text>
@@ -37,7 +37,7 @@
       </form>
       <view class="order-navbar-footer dis-flex m-top10">
         <view class="order-navbar-item flex-box">
-          <form bindsubmit="onTargetOrder" data-type="all" report-submit="true">
+          <form bindsubmit="onTargetOrder" data-type="all">
             <button formType="submit" class="btn-normal">
               <text class="order-navbar__icon iconfont icon-form"></text>
               <text class="order-navbar__name">全部订单</text>
@@ -45,7 +45,7 @@
           </form>
         </view>
         <view class="order-navbar-item flex-box">
-          <form bindsubmit="onTargetOrder" data-type="payment" report-submit="true">
+          <form bindsubmit="onTargetOrder" data-type="payment">
             <button formType="submit" class="btn-normal">
               <text class="order-navbar__icon iconfont icon-daifukuan"></text>
               <text class="order-navbar__name">待付款</text>
@@ -54,7 +54,7 @@
           </form>
         </view>
         <view class="order-navbar-item flex-box">
-          <form bindsubmit="onTargetOrder" data-type="received" report-submit="true">
+          <form bindsubmit="onTargetOrder" data-type="received">
             <button formType="submit" class="btn-normal">
               <text class="order-navbar__icon iconfont icon-daishouhuo"></text>
               <text class="order-navbar__name">待收货</text>
@@ -63,7 +63,7 @@
           </form>
         </view>
         <view class="order-navbar-item flex-box">
-          <form bindsubmit="onTargetOrder" data-type="refund" report-submit="true">
+          <form bindsubmit="onTargetOrder" data-type="refund">
             <button formType="submit" class="btn-normal">
               <text class="order-navbar__icon iconfont icon-shouhou"></text>
               <text class="order-navbar__name">退款/售后</text>
@@ -78,7 +78,7 @@
   <view class="my-asset dis-flex">
     <view class="asset-left flex-box dis-flex flex-x-center">
       <view class="asset-left_item">
-        <form bindsubmit="onTargetWallet" report-submit="true">
+        <form bindsubmit="onTargetWallet">
           <button formType="submit" class="btn-normal">
             <view class="item-value dis-flex flex-x-center">
               <text>{{ userInfo.balance }}</text>
@@ -90,7 +90,7 @@
         </form>
       </view>
       <view class="asset-left_item">
-        <form bindsubmit="onTargetCoupon" report-submit="true">
+        <form bindsubmit="onTargetCoupon">
           <button formType="submit" class="btn-normal">
             <view class="item-value dis-flex flex-x-center">
               <text>{{ couponCount }}</text>
@@ -104,7 +104,7 @@
     </view>
     <view class="asset-right">
       <view class="asset-right_item">
-        <form bindsubmit="onTargetWallet" report-submit="true">
+        <form bindsubmit="onTargetWallet">
           <button formType="submit" class="btn-normal">
             <view class="item-icon dis-flex flex-x-center">
               <text class="iconfont icon-qianbao"></text>
@@ -119,7 +119,7 @@
   </view>
   <!-- 菜单列表 -->
   <view class="menus-list">
-    <form wx:for="{{ menus }}" wx:key="this" bindsubmit="onTargetMenus" data-url="{{item.url}}" report-submit="true">
+    <form wx:for="{{ menus }}" wx:key="this" bindsubmit="onTargetMenus" data-url="{{item.url}}">
       <button formType="submit" class="btn-normal">
         <view class="menus-item dis-flex b-f">
           <view class="menus-item__left flex-box dis-flex flex-y-center">

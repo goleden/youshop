@@ -1,6 +1,7 @@
 <?php
 
 use app\common\enum\DeliveryType as DeliveryTypeEnum;
+use app\common\enum\order\PayType as PayTypeEnum;
 
 ?>
 <div class="row-content am-cf">
@@ -23,7 +24,7 @@ use app\common\enum\DeliveryType as DeliveryTypeEnum;
                             <div class="am-form-group">
                                 <label class="am-u-sm-3 am-form-label form-require"> 配送方式 </label>
                                 <div class="am-u-sm-9">
-                                    <?php foreach (DeliveryTypeEnum::data() as $item): ?>
+                                    <?php foreach (DeliveryTypeEnum::data() as $item) : ?>
                                         <label class="am-checkbox-inline">
                                             <input type="checkbox" name="store[delivery_type][]"
                                                    value="<?= $item['value'] ?>" data-am-ucheck
@@ -34,6 +35,19 @@ use app\common\enum\DeliveryType as DeliveryTypeEnum;
                                     <div class="help-block">
                                         <small>注：配送方式至少选择一个</small>
                                     </div>
+                                </div>
+                            </div>
+                            <div class="am-form-group">
+                                <label class="am-u-sm-3 am-form-label form-require"> 支付方式 </label>
+                                <div class="am-u-sm-9">
+                                    <?php foreach (PayTypeEnum::data() as $item) : ?>
+                                        <label class="am-checkbox-inline">
+                                            <input type="checkbox" name="store[pay_type][]"
+                                                   value="<?= $item['value'] ?>" data-am-ucheck
+                                                <?= in_array($item['value'], $values['pay_type']) ? 'checked' : '' ?>>
+                                            <?= $item['name'] ?>
+                                        </label>
+                                    <?php endforeach; ?>
                                 </div>
                             </div>
                             <div class="widget-head am-cf">

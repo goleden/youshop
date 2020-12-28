@@ -150,7 +150,7 @@ Page({
   onSelectPayType(e) {
     let _this = this;
     // 记录formId
-    App.saveFormId(e.detail.formId);
+    // App.saveFormId(e.detail.formId)
     // 隐藏支付方式弹窗
     _this.onTogglePayPopup();
     if (!_this.data.showPayPopup) {
@@ -184,29 +184,32 @@ Page({
         App.showError(result.msg);
         return false;
       }
-      // 发起微信支付
-      if (result.data.pay_type == PayTypeEnum.WECHAT.value) {
-        App.wxPayment({
-          payment: result.data.payment,
-          success() {
+      switch (parseInt(result.data.pay_type)) {
+        case PayTypeEnum.WECHAT.value:
+          // 发起微信支付
+          App.wxPayment({
+            payment: result.data.payment,
+            success() {
+              // 跳转到已付款订单
+              wx.navigateTo({
+                url: '../order/detail?order_id=' + orderId
+              });
+            },
+            fail() {
+              App.showError(result.msg.error);
+            },
+          });
+          break;
+      
+        default:
+          // 余额支付/线下支付
+          App.showSuccess(result.msg.success, () => {
             // 跳转到已付款订单
             wx.navigateTo({
               url: '../order/detail?order_id=' + orderId
             });
-          },
-          fail() {
-            App.showError(result.msg.error);
-          },
-        });
-      }
-      // 余额支付
-      if (result.data.pay_type == PayTypeEnum.BALANCE.value) {
-        App.showSuccess(result.msg.success, () => {
-          // 跳转到已付款订单
-          wx.navigateTo({
-            url: '../order/detail?order_id=' + orderId
           });
-        });
+          break;
       }
     }, null, () => {
       wx.hideLoading();

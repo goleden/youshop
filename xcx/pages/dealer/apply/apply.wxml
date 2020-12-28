@@ -11,7 +11,7 @@
       <view class="widget-form b-f m-top20 dis-flex flex-dir-column">
         <view class="form-title f-30">{{ words.apply.words.title.value }}</view>
         <view class="form-box dis-flex flex-dir-column">
-          <form bindsubmit="formSubmit" report-submit="true">
+          <form bindsubmit="formSubmit">
             <view class="form-field dis-flex flex-y-center">
               <view class="field-label">邀请人</view>
               <view class="field-input">
@@ -57,7 +57,7 @@
     </view>
     <!-- 去商城逛逛 -->
     <view class="boot__submit form-submit dis-flex flex-x-center">
-      <form bindsubmit="navigationToIndex" report-submit="true">
+      <form bindsubmit="navigationToIndex">
         <button formType="submit">{{ words.apply.words.goto_mall.value }}</button>
       </form>
     </view>

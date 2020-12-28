@@ -163,7 +163,7 @@ Page({
       goodsMultiSpec = _this.data.goodsMultiSpec;
 
     // 记录formid
-    App.saveFormId(e.detail.formId);
+    // App.saveFormId(e.detail.formId)
 
     for (let i in goodsMultiSpec.spec_attr) {
       for (let j in goodsMultiSpec.spec_attr[i].spec_items) {
@@ -225,7 +225,7 @@ Page({
    */
   onScrollTop(e) {
     let _this = this;
-    App.saveFormId(e.detail.formId);
+    // App.saveFormId(e.detail.formId)
     _this.setData({
       scrollTop: 0
     });
@@ -246,7 +246,7 @@ Page({
    */
   onIncGoodsNumber(e) {
     let _this = this;
-    App.saveFormId(e.detail.formId);
+    // App.saveFormId(e.detail.formId)
     _this.setData({
       goods_num: ++_this.data.goods_num
     })
@@ -257,7 +257,7 @@ Page({
    */
   onDecGoodsNumber(e) {
     let _this = this;
-    App.saveFormId(e.detail.formId);
+    // App.saveFormId(e.detail.formId)
     if (_this.data.goods_num > 1) {
       _this.setData({
         goods_num: --_this.data.goods_num
@@ -328,7 +328,7 @@ Page({
    */
   onTargetToComment(e) {
     let _this = this;
-    App.saveFormId(e.detail.formId);
+    // App.saveFormId(e.detail.formId)
     wx.navigateTo({
       url: './comment/comment?goods_id=' + _this.data.goods_id
     })
@@ -355,7 +355,7 @@ Page({
   onClickShare(e) {
     let _this = this;
     // 记录formId
-    App.saveFormId(e.detail.formId);
+    // App.saveFormId(e.detail.formId)
     _this.setData({
       'share.show': true
     });
@@ -418,7 +418,7 @@ Page({
   onSavePoster(e) {
     let _this = this;
     // 记录formId
-    App.saveFormId(e.detail.formId);
+    // App.saveFormId(e.detail.formId)
     wx.showLoading({
       title: '加载中',
     });
@@ -466,10 +466,6 @@ Page({
    */
   onToggleTrade(e) {
     let _this = this;
-    if (typeof e === 'object') {
-      // 记录formId
-      e.detail.hasOwnProperty('formId') && App.saveFormId(e.detail.formId);
-    }
     _this.setData({
       showBottomPopup: !_this.data.showBottomPopup
     });
@@ -480,7 +476,7 @@ Page({
    */
   onToggleRules(e) {
     // 记录formId
-    App.saveFormId(e.detail.formId);
+    // App.saveFormId(e.detail.formId)
     // 显示拼团规则
     let _this = this;
     Dialog({
@@ -499,7 +495,7 @@ Page({
    * 返回主页
    */
   onNavigationHome(e) {
-    App.saveFormId(e.detail.formId);
+    // App.saveFormId(e.detail.formId)
     wx.switchTab({
       url: '../../index/index',
     })
@@ -509,7 +505,6 @@ Page({
    * 立即下单
    */
   onTriggerOrder(e) {
-    console.log(App.saveFormId(e.detail.formId))
     let _this = this;
     // 设置当前购买类型
     _this.setData({

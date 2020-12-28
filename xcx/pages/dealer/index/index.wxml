@@ -87,7 +87,7 @@
     <view class="no-msg dis-flex flex-x-center f-30" style="">{{ words.index.words.not_dealer.value }}</view>
     <!-- 立即申请 -->
     <view class="no-submit form-submit dis-flex flex-x-center">
-      <form bindsubmit="triggerApply" report-submit="true">
+      <form bindsubmit="triggerApply">
         <button formType="submit">{{ words.index.words.apply_now.value }}</button>
       </form>
     </view>

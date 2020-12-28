@@ -46,7 +46,7 @@
         </view>
         <!-- 分享按钮 -->
         <view class="goods__share">
-          <form bindsubmit="onClickShare" report-submit="true">
+          <form bindsubmit="onClickShare">
             <button formType="submit" class="btn-normal dis-flex flex-dir-column">
               <text class="share__icon iconfont icon-fenxiang"></text>
               <text class="f-24">分享</text>
@@ -79,7 +79,7 @@
     <view class="goods-comment" wx:if="{{ detail.comment_data.length }}">
       <view class="cont-box b-f goods-property-box m-top20">
         <text class="col-3 f-30">评价 ({{ detail.comment_data_count }}条)</text>
-        <form bindsubmit="onTargetToComment" report-submit="true" class="comment-num">
+        <form bindsubmit="onTargetToComment" class="comment-num">
           <button formType="submit" class="btn-normal">
             <text class="f-28">查看更多</text>
           </button>
@@ -145,7 +145,7 @@
 
     <!-- 拼团玩法 -->
     <view class="rule-nav top-nav-bar m-top20 b-f">
-      <form bindsubmit="onToggleRules" report-submit="true">
+      <form bindsubmit="onToggleRules">
         <button formType="submit" class="btn-normal">
           <view class="top-nav dis-flex flex-x-between">
             <text>拼团玩法</text>
@@ -207,7 +207,7 @@
     <!-- 底部操作栏 -->
     <view class="footer-fixed f-28">
       <!-- 返回主页 -->
-      <form bindsubmit="onNavigationHome" report-submit="true">
+      <form bindsubmit="onNavigationHome">
         <button formType="submit" class="btn-normal">
           <view class="goods-fixed-icon dis-flex flex-x-center flex-y-center">
             <text class="iconfont icon-zhuye"></text>
@@ -222,7 +222,7 @@
       <!-- 购买按钮 -->
       <view class="fixed-buttons flex-box dis-flex">
         <view wx:if="{{ detail.is_alone == 0 }}" class="order-number flex-box dis-flex flex-dir-column flex-x-center">
-          <form bindsubmit="onTriggerOrder" report-submit="true" data-type="10">
+          <form bindsubmit="onTriggerOrder" data-type="10">
             <button formType="submit" class="btn-normal">
               <view class="f-26">￥{{ goods_price }}</view>
               <view>单独购买</view>
@@ -230,7 +230,7 @@
           </form>
         </view>
         <view class="order-bt flex-box dis-flex flex-dir-column flex-x-center">
-          <form bindsubmit="onTriggerOrder" report-submit="true" data-type="20">
+          <form bindsubmit="onTriggerOrder" data-type="20">
             <button formType="submit" class="btn-normal col-f">
               <view class="f-26">￥{{ sharing_price }}</view>
               <view>发起拼单</view>
@@ -247,7 +247,7 @@
   <view class="popup__trade">
     <!-- 关闭按钮 -->
     <view class="trade-close dis-flex flex-x-center flex-y-center">
-      <form bindsubmit="onToggleTrade" report-submit="true">
+      <form bindsubmit="onToggleTrade">
         <button formType="submit" class="btn-normal">
           <text class="iconfont icon-close f-26"></text>
         </button>
@@ -283,14 +283,14 @@
           <view class="tipstxt" data-id="{{attr.group_id}}">{{attr.group_name}}</view>
           <view class="cf cartypelist" wx:for="{{ attr.spec_items }}" wx:for-index="item_idx" wx:key="ikey">
             <view wx:if="{{item.checked}}">
-              <form bindsubmit="onSwitchSpec" report-submit="true" data-attr-idx="{{attr_idx}}" data-item-idx="{{item_idx}}">
+              <form bindsubmit="onSwitchSpec" data-attr-idx="{{attr_idx}}" data-item-idx="{{item_idx}}">
                 <button formType="submit" class="btn-normal">
                   <view class="cartypeitem cur">{{item.spec_value}}</view>
                 </button>
               </form>
             </view>
             <view wx:else>
-              <form bindsubmit="onSwitchSpec" report-submit="true" data-attr-idx="{{attr_idx}}" data-item-idx="{{item_idx}}">
+              <form bindsubmit="onSwitchSpec" data-attr-idx="{{attr_idx}}" data-item-idx="{{item_idx}}">
                 <button formType="submit" class="btn-normal">
                   <view class="cartypeitem">{{item.spec_value}}</view>
                 </button>
@@ -305,11 +305,11 @@
           <text>购买数量</text>
         </view>
         <view class="selectNumber">
-          <form bindsubmit="onDecGoodsNumber" report-submit="true">
+          <form bindsubmit="onDecGoodsNumber">
             <button formType="submit" class="default {{goods_num>1?'':' default-active'}}" type="default">-</button>
           </form>
           <input bindinput="onInputGoodsNum" type="number" value="{{goods_num}}"></input>
-          <form bindsubmit="onIncGoodsNumber" report-submit="true">
+          <form bindsubmit="onIncGoodsNumber">
             <button formType="submit" class="default" type="default">+</button>
           </form>
         </view>
@@ -329,7 +329,7 @@
 
 <!-- 返回顶部 -->
 <view class="widget-goTop" wx:if="{{floorstatus}}">
-  <form bindsubmit="onScrollTop" report-submit="true">
+  <form bindsubmit="onScrollTop">
     <button formType="submit" class="btn-normal">
       <text class="iconfont icon-fanhuidingbu"></text>
     </button>
@@ -346,7 +346,7 @@
     <view class="pop-close dis-flex flex-x-center flex-y-center" catchtap="onTogglePopup">
       <text class="iconfont icon-shanchu f-30 col-9"></text>
     </view>
-    <form bindsubmit="onSavePoster" report-submit="true">
+    <form bindsubmit="onSavePoster">
       <view class="poster__image">
         <image mode="widthFix" src="{{ qrcode }}"></image>
       </view>

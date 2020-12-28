@@ -16,19 +16,19 @@
 
   <view class="space-lower">
     <view class="space-lower_item btn-recharge">
-      <form bindsubmit="onTargetRecharge" report-submit="true">
+      <form bindsubmit="onTargetRecharge">
         <button formType="submit" class="btn-submit">充 值</button>
       </form>
     </view>
     <view class="space-lower_item item-lable dis-flex flex-x-around">
-      <form bindsubmit="onTargetRechargeOrder" report-submit="true">
+      <form bindsubmit="onTargetRechargeOrder">
         <button formType="submit" class="btn-normal">
           <view class="lable-text">
             <text>充值记录</text>
           </view>
         </button>
       </form>
-      <form bindsubmit="onTargetBalanceLog" report-submit="true">
+      <form bindsubmit="onTargetBalanceLog">
         <button formType="submit" class="btn-normal">
           <view class="lable-text">
             <text>账单详情</text>

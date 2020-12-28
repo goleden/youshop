@@ -428,6 +428,11 @@ class Order extends OrderModel
         if ($payType == PayTypeEnum::BALANCE) {
             return $this->onPaymentByBalance($this['order_no']);
         }
+
+        // 线下支付
+        if ($payType == PayTypeEnum::OFFLINE) {
+            return $this->onPaymentByOffline($this['order_no']);
+        }
         return true;
     }
 
@@ -477,6 +482,27 @@ class Order extends OrderModel
         $order = $model->payDetail($orderNo);
         // 发起余额支付
         $status = $order->paySuccess(PayTypeEnum::BALANCE);
+        if (!$status) {
+            $this->error = $order->error;
+        }
+        return $status;
+    }
+
+    /**
+     * 余额支付标记订单已支付
+     * @param string $orderNo 订单号
+     * @return bool
+     * @throws BaseException
+     * @throws \think\Exception
+     * @throws \think\exception\DbException
+     */
+    public function onPaymentByOffline($orderNo)
+    {
+        // 获取订单详情
+        $model = new \app\task\model\Order;
+        $order = $model->payDetail($orderNo);
+        // 发起余额支付
+        $status = $order->paySuccess(PayTypeEnum::OFFLINE);
         if (!$status) {
             $this->error = $order->error;
         }

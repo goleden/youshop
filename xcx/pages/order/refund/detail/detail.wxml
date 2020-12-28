@@ -11,7 +11,7 @@
   </view>
 
   <!-- 商品详情 -->
-  <form bindsubmit="onGoodsDetail" report-submit="true">
+  <form bindsubmit="onGoodsDetail">
     <button class="btn-normal" formType="submit" data-id="{{ detail.order_goods.goods_id }}">
       <view class="detail-goods b-f m-top20 dis-flex flex-dir-row">
         <view class="left">

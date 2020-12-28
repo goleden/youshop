@@ -115,7 +115,7 @@ Page({
       goodsMultiSpec = _this.data.goodsMultiSpec;
 
     // 记录formid
-    App.saveFormId(e.detail.formId);
+    // App.saveFormId(e.detail.formId)
 
     for (let i in goodsMultiSpec.spec_attr) {
       for (let j in goodsMultiSpec.spec_attr[i].spec_items) {
@@ -280,7 +280,7 @@ Page({
    */
   onIncGoodsNumber(e) {
     let _this = this;
-    App.saveFormId(e.detail.formId);
+    // App.saveFormId(e.detail.formId)
     _this.setData({
       goods_num: ++_this.data.goods_num
     })
@@ -291,7 +291,7 @@ Page({
    */
   onDecGoodsNumber(e) {
     let _this = this;
-    App.saveFormId(e.detail.formId);
+    // App.saveFormId(e.detail.formId)
     if (_this.data.goods_num > 1) {
       _this.setData({
         goods_num: --_this.data.goods_num

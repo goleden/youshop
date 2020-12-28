@@ -40,7 +40,7 @@ Page({
    */
   onTargetOrder(e) {
     // 记录formid
-    App.saveFormId(e.detail.formId);
+    // App.saveFormId(e.detail.formId)
     let urls = {
       all: '/pages/order/index?type=all',
       payment: '/pages/order/index?type=payment',
@@ -58,7 +58,7 @@ Page({
    */
   onTargetMenus(e) {
     // 记录formId
-    App.saveFormId(e.detail.formId);
+    // App.saveFormId(e.detail.formId)
     wx.navigateTo({
       url: '/' + e.currentTarget.dataset.url
     })
@@ -69,7 +69,7 @@ Page({
    */
   onTargetWallet(e) {
     // 记录formId
-    App.saveFormId(e.detail.formId);
+    // App.saveFormId(e.detail.formId)
     wx.navigateTo({
       url: './wallet/index'
     })
@@ -80,7 +80,7 @@ Page({
    */
   onTargetCoupon(e) {
     // 记录formId
-    App.saveFormId(e.detail.formId);
+    // App.saveFormId(e.detail.formId)
     wx.navigateTo({
       url: './coupon/coupon'
     })

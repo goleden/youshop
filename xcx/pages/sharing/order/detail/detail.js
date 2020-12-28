@@ -130,7 +130,7 @@ Page({
   onSelectPayType(e) {
     let _this = this;
     // 记录formId
-    App.saveFormId(e.detail.formId);
+    // App.saveFormId(e.detail.formId)
     // 隐藏支付方式弹窗
     _this.onTogglePayPopup();
     if (!_this.data.showPayPopup) {

@@ -58,7 +58,7 @@ Page({
    */
   triggerApply: function(e) {
     // 记录formId
-    App.saveFormId(e.detail.formId);
+    // App.saveFormId(e.detail.formId)
     wx.navigateTo({
       url: '../apply/apply',
     })

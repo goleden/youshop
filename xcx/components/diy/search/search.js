@@ -25,7 +25,7 @@ Component({
      */
     onTargetSearch(e) {
       // 记录formid
-      App.saveFormId(e.detail.formId);
+      // App.saveFormId(e.detail.formId)
       App.navigationTo('pages/search/index');
     },
   }

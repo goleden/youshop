@@ -9,5 +9,9 @@ module.exports = {
   WECHAT: {
     name: '微信支付',
     value: 20
+  },
+  OFFLINE: {
+    name: '线下支付/货到付款',
+    value: 30
   }
 };

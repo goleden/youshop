@@ -395,7 +395,7 @@ class Message
     {
         $str = '';
         foreach ($goodsData as $goods) {
-            $str .= $goods['goods_name'] . '，数量：' . $goods['total_num'] . ' ';
+            $str .= $goods['goods_name'] . ',数量:' . $goods['total_num'] . '；';
         }
         return $str;
     }
