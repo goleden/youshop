@@ -2,18 +2,16 @@
 
 namespace app\task\model;
 
+use app\common\enum\order\PayStatus as PayStatusEnum;
 use app\common\model\Order as OrderModel;
-
 use app\task\model\User as UserModel;
 use app\task\model\Goods as GoodsModel;
 use app\task\model\dealer\Apply as DealerApplyModel;
 use app\task\model\user\BalanceLog as BalanceLogModel;
 use app\task\model\WxappPrepayId as WxappPrepayIdModel;
-
 use app\common\service\Message as MessageService;
 use app\common\service\order\Printer as PrinterService;
 use app\common\service\wechat\wow\Order as WowOrder;
-
 use app\common\enum\OrderStatus as OrderStatusEnum;
 use app\common\enum\order\PayType as PayTypeEnum;
 use app\common\enum\OrderType as OrderTypeEnum;
@@ -109,11 +107,19 @@ class Order extends OrderModel
         }
         $this->transaction(function () use ($user, $payType, $payData) {
             // 更新商品库存、销量
-            (new GoodsModel)->updateStockSales($this['goods']);
+            (new GoodsModel())->updateStockSales($this['goods']);
             // 更新订单状态
-            $order = ['pay_type' => $payType, 'pay_status' => 20, 'pay_time' => time()];
+            $order = [
+                'pay_type' => $payType,
+                'pay_status' => PayStatusEnum::SUCCESS,
+                'pay_time' => time()
+            ];
             if ($payType == PayTypeEnum::WECHAT) {
                 $order['transaction_id'] = $payData['transaction_id'];
+            }
+            if ($payType == PayTypeEnum::OFFLINE) {
+                // 未支付，可以发货，但这里直接修改成已支付，因为前台判断根据pay_status来发货的。
+                // $order['pay_status'] = PayStatusEnum::PENDING;
             }
             $this->save($order);
             // 累积用户总消费金额

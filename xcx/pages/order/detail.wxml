@@ -57,7 +57,7 @@
     </view>
 
     <!-- 物流信息 -->
-    <view class="flow-all-money b-f padding-box m-top20" wx:if="{{ order.delivery_type.value == DeliveryTypeEnum.EXPRESS.value && order.delivery_status.value == 20 }}">
+    <view class="flow-all-money b-f padding-box m-top20" wx:if="{{ order.delivery_type.value == DeliveryTypeEnum.EXPRESS.value && order.delivery_status.value == 20 && order.express.express_id}}">
       <view class="flow-all-list dis-flex">
         <text class="">物流信息</text>
       </view>

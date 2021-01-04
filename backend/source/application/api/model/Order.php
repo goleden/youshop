@@ -774,6 +774,7 @@ class Order extends OrderModel
             }
             // 更新订单状态
             $status = $this->save(array_merge($orderData, [
+                'pay_status' => PayStatusEnum::SUCCESS,
                 'receipt_status' => 20,
                 'receipt_time' => time(),
                 'order_status' => 30

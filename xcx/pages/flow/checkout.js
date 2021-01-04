@@ -208,7 +208,7 @@ Page({
       }
 
       // 发起微信支付
-      switch (result.data.pay_type) {
+      switch (parseInt(result.data.pay_type)) {
         case PayTypeEnum.WECHAT.value:
           App.wxPayment({
             payment: result.data.payment,

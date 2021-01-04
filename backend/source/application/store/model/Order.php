@@ -244,8 +244,8 @@ class Order extends OrderModel
         // 整理更新的数据
         $updateList = [[
             'order_id' => $this['order_id'],
-            'express_id' => $data['express_id'],
-            'express_no' => $data['express_no']
+            'express_id' => $data['express_id'] ?? 0,
+            'express_no' => $data['express_no'] ?? '',
         ]];
         // 更新订单发货状态
         if ($status = $this->updateToDelivery($updateList)) {
