@@ -190,7 +190,7 @@
       </view>
       <view class="pop-content">
         <view class="pay-method">
-          <form bindsubmit="onSelectPayType" data-value="{{ PayTypeEnum.WECHAT.value }}" report-submit="true">
+          <form bindsubmit="onSelectPayType" data-value="{{ PayTypeEnum.WECHAT.value }}">
             <button formType="submit" class="btn-normal">
               <view class="pay-item dis-flex flex-x-between">
                 <view class="item-left dis-flex flex-y-center">
@@ -204,7 +204,7 @@
               </view>
             </button>
           </form>
-          <form bindsubmit="onSelectPayType" data-value="{{ PayTypeEnum.BALANCE.value }}" report-submit="true">
+          <form bindsubmit="onSelectPayType" data-value="{{ PayTypeEnum.BALANCE.value }}">
             <button formType="submit" class="btn-normal">
               <view class="pay-item dis-flex flex-x-between">
                 <view class="item-left dis-flex flex-y-center">

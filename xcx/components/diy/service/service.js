@@ -27,7 +27,7 @@ Component({
      */
     _onServiceEvent(e) {
       // 记录formid
-      App.saveFormId(e.detail.formId);
+      // App.saveFormId(e.detail.formId)
       // 拨打电话
       wx.makePhoneCall({
         phoneNumber: this.data.params.phone_num

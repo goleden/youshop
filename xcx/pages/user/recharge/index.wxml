@@ -38,7 +38,7 @@
 
     <!-- 确认按钮 -->
     <view class="recharge-submit btn-submit">
-      <form bindsubmit="onSubmit" report-submit="true">
+      <form bindsubmit="onSubmit">
         <button formType="submit" disabled="{{ disabled }}">立即充值</button>
       </form>
     </view>

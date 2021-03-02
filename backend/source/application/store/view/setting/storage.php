@@ -25,10 +25,6 @@
                                         <input type="radio" name="storage[default]" value="aliyun" data-am-ucheck
                                             <?= $values['default'] === 'aliyun' ? 'checked' : '' ?>> 阿里云OSS
                                     </label>
-                                    <label class="am-radio-inline">
-                                        <input type="radio" name="storage[default]" value="qcloud" data-am-ucheck
-                                            <?= $values['default'] === 'qcloud' ? 'checked' : '' ?>> 腾讯云COS
-                                    </label>
                                 </div>
                             </div>
                             <div id="qiniu"
@@ -108,59 +104,6 @@
                                         <input type="text" class="tpl-form-input"
                                                name="storage[engine][aliyun][domain]"
                                                value="<?= $values['engine']['aliyun']['domain'] ?>">
-                                        <small>请补全http:// 或 https://，例如：http://static.cloud.com</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div id="qcloud"
-                                 class="form-tab-group <?= $values['default'] === 'qcloud' ? 'active' : '' ?>">
-                                <div class="am-form-group">
-                                    <label class="am-u-sm-3 am-form-label">
-                                        存储空间名称 <span class="tpl-form-line-small-title">Bucket</span>
-                                    </label>
-                                    <div class="am-u-sm-9">
-                                        <input type="text" class="tpl-form-input" name="storage[engine][qcloud][bucket]"
-                                               value="<?= $values['engine']['qcloud']['bucket'] ?>">
-                                    </div>
-                                </div>
-                                <div class="am-form-group">
-                                    <label class="am-u-sm-3 am-form-label">
-                                        所属地域 <span class="tpl-form-line-small-title">Region</span>
-                                    </label>
-                                    <div class="am-u-sm-9">
-                                        <input type="text" class="tpl-form-input"
-                                               name="storage[engine][qcloud][region]"
-                                               value="<?= $values['engine']['qcloud']['region'] ?>">
-                                        <small>请填写地域简称，例如：ap-beijing、ap-hongkong、eu-frankfurt</small>
-                                    </div>
-                                </div>
-                                <div class="am-form-group">
-                                    <label class="am-u-sm-3 am-form-label">
-                                        SecretId
-                                    </label>
-                                    <div class="am-u-sm-9">
-                                        <input type="text" class="tpl-form-input"
-                                               name="storage[engine][qcloud][secret_id]"
-                                               value="<?= $values['engine']['qcloud']['secret_id'] ?>">
-                                    </div>
-                                </div>
-                                <div class="am-form-group">
-                                    <label class="am-u-sm-3 am-form-label">
-                                        SecretKey
-                                    </label>
-                                    <div class="am-u-sm-9">
-                                        <input type="text" class="tpl-form-input"
-                                               name="storage[engine][qcloud][secret_key]"
-                                               value="<?= $values['engine']['qcloud']['secret_key'] ?>">
-                                    </div>
-                                </div>
-                                <div class="am-form-group">
-                                    <label class="am-u-sm-3 am-form-label">
-                                        空间域名 <span class="tpl-form-line-small-title">Domain</span>
-                                    </label>
-                                    <div class="am-u-sm-9">
-                                        <input type="text" class="tpl-form-input" name="storage[engine][qcloud][domain]"
-                                               value="<?= $values['engine']['qcloud']['domain'] ?>">
                                         <small>请补全http:// 或 https://，例如：http://static.cloud.com</small>
                                     </div>
                                 </div>

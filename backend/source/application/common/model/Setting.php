@@ -4,6 +4,7 @@ namespace app\common\model;
 
 use think\Cache;
 use app\common\enum\DeliveryType as DeliveryTypeEnum;
+use app\common\enum\order\PayType as PayTypeEnum;
 use app\common\enum\Setting as SettingEnum;
 
 /**
@@ -113,6 +114,10 @@ class Setting extends BaseModel
         if (isset($userData['store']['values']['delivery_type'])) {
             unset($defaultData['store']['values']['delivery_type']);
         }
+        // 商城设置：支付方式
+        if (isset($userData['store']['values']['pay_type'])) {
+            unset($defaultData['store']['values']['pay_type']);
+        }
         return array_merge_multiple($defaultData, $userData);
     }
 
@@ -132,6 +137,8 @@ class Setting extends BaseModel
                     'name' => $storeName ?: '零点商城',
                     // 配送方式
                     'delivery_type' => array_keys(DeliveryTypeEnum::data()),
+                    // 配送方式
+                    'pay_type' => array_keys(PayTypeEnum::data()),
                     // 快递100
                     'kuaidi100' => [
                         'customer' => '',

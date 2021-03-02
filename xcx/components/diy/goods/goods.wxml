@@ -3,7 +3,7 @@
   <view class="goods-list display__{{ itemStyle.display }} column__{{ itemStyle.column }}">
     <scroll-view scroll-x="{{ itemStyle.display === 'slide' }}">
       <view class="goods-item" wx:for="{{ dataList }}" wx:key="this" wx:for-item="dataItem">
-        <form bindsubmit="_onTargetGoods" report-submit="true">
+        <form bindsubmit="_onTargetGoods">
           <button formType="submit" class="btn-normal" data-id="{{ dataItem.goods_id }}">
             <!-- 单列商品 -->
             <block wx:if="{{ itemStyle.column == 1 }}">

@@ -143,14 +143,14 @@
           <view class="tipstxt" data-id="{{attr.group_id}}">{{attr.group_name}}</view>
           <view class="cf cartypelist" wx:for="{{attr.spec_items}}" wx:for-index="item_idx" wx:key="ikey">
             <view wx:if="{{item.checked}}">
-              <form bindsubmit="onSwitchSpec" report-submit="true" data-attr-idx="{{attr_idx}}" data-item-idx="{{item_idx}}">
+              <form bindsubmit="onSwitchSpec" data-attr-idx="{{attr_idx}}" data-item-idx="{{item_idx}}">
                 <button formType="submit" class="btn-normal">
                   <view class="cartypeitem cur">{{item.spec_value}}</view>
                 </button>
               </form>
             </view>
             <view wx:else>
-              <form bindsubmit="onSwitchSpec" report-submit="true" data-attr-idx="{{attr_idx}}" data-item-idx="{{item_idx}}">
+              <form bindsubmit="onSwitchSpec" data-attr-idx="{{attr_idx}}" data-item-idx="{{item_idx}}">
                 <button formType="submit" class="btn-normal">
                   <view class="cartypeitem">{{item.spec_value}}</view>
                 </button>
@@ -165,11 +165,11 @@
           <text>购买数量</text>
         </view>
         <view class="selectNumber">
-          <form bindsubmit="onDecGoodsNumber" report-submit="true">
+          <form bindsubmit="onDecGoodsNumber">
             <button formType="submit" class="default {{goods_num>1?'':' default-active'}}" type="default">-</button>
           </form>
           <input bindinput="onInputGoodsNum" type="number" value="{{goods_num}}"></input>
-          <form bindsubmit="onIncGoodsNumber" report-submit="true">
+          <form bindsubmit="onIncGoodsNumber">
             <button formType="submit" class="default" type="default">+</button>
           </form>
         </view>

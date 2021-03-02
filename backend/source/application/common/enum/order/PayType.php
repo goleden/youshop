@@ -16,6 +16,9 @@ class PayType extends EnumBasics
 
     // 微信支付
     const WECHAT = 20;
+    
+    // 线下支付
+    const OFFLINE = 30;
 
     /**
      * 获取枚举数据
@@ -32,7 +35,10 @@ class PayType extends EnumBasics
                 'name' => '微信支付',
                 'value' => self::WECHAT,
             ],
+            self::OFFLINE => [
+                'name' => '线下支付/货到付款',
+                'value' => self::OFFLINE,
+            ],
         ];
     }
-
 }

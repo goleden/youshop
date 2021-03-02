@@ -57,7 +57,7 @@
     </view>
 
     <!-- 物流信息 -->
-    <view class="flow-all-money b-f padding-box m-top20" wx:if="{{ order.delivery_type.value == DeliveryTypeEnum.EXPRESS.value && order.delivery_status.value == 20 }}">
+    <view class="flow-all-money b-f padding-box m-top20" wx:if="{{ order.delivery_type.value == DeliveryTypeEnum.EXPRESS.value && order.delivery_status.value == 20 && order.express.express_id}}">
       <view class="flow-all-list dis-flex">
         <text class="">物流信息</text>
       </view>
@@ -190,7 +190,7 @@
       </view>
       <view class="pop-content">
         <view class="pay-method">
-          <form bindsubmit="onSelectPayType" data-value="{{ PayTypeEnum.WECHAT.value }}" report-submit="true">
+          <form bindsubmit="onSelectPayType" data-value="{{ PayTypeEnum.WECHAT.value }}">
             <button formType="submit" class="btn-normal">
               <view class="pay-item dis-flex flex-x-between">
                 <view class="item-left dis-flex flex-y-center">
@@ -204,7 +204,7 @@
               </view>
             </button>
           </form>
-          <form bindsubmit="onSelectPayType" data-value="{{ PayTypeEnum.BALANCE.value }}" report-submit="true">
+          <form bindsubmit="onSelectPayType" data-value="{{ PayTypeEnum.BALANCE.value }}">
             <button formType="submit" class="btn-normal">
               <view class="pay-item dis-flex flex-x-between">
                 <view class="item-left dis-flex flex-y-center">
@@ -213,6 +213,20 @@
                   </view>
                   <view class="item-left_text">
                     <text>{{ PayTypeEnum.BALANCE.name }}</text>
+                  </view>
+                </view>
+              </view>
+            </button>
+          </form>
+          <form bindsubmit="onSelectPayType" data-value="{{ PayTypeEnum.OFFLINE.value }}">
+            <button formType="submit" class="btn-normal">
+              <view class="pay-item dis-flex flex-x-between">
+                <view class="item-left dis-flex flex-y-center">
+                  <view class="item-left_icon offline">
+                    <text class="iconfont icon-offline"></text>
+                  </view>
+                  <view class="item-left_text">
+                    <text>{{ PayTypeEnum.OFFLINE.name }}</text>
                   </view>
                 </view>
               </view>

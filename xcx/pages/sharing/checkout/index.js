@@ -306,7 +306,7 @@ Page({
   onSelectPayType(e) {
     let _this = this;
     // 记录formId
-    App.saveFormId(e.detail.formId);
+    // App.saveFormId(e.detail.formId)
     // 设置当前支付方式
     _this.setData({
       curPayType: e.currentTarget.dataset.value

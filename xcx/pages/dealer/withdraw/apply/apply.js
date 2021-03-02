@@ -54,7 +54,7 @@ Page({
       words = _this.data.words.withdraw_apply.words;
 
     // 记录formId
-    App.saveFormId(e.detail.formId);
+    // App.saveFormId(e.detail.formId)
 
     // 验证可提现佣金
     if (_this.data.dealer.money <= 0) {

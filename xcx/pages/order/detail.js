@@ -131,7 +131,7 @@ Page({
   onSelectPayType(e) {
     let _this = this;
     // 记录formId
-    App.saveFormId(e.detail.formId);
+    // App.saveFormId(e.detail.formId)
     // 隐藏支付方式弹窗
     _this.onTogglePayPopup();
     if (!_this.data.showPayPopup) {
@@ -168,24 +168,26 @@ Page({
         return false;
       }
 
-      // 发起微信支付
-      if (result.data.pay_type == PayTypeEnum.WECHAT.value) {
-        App.wxPayment({
-          payment: result.data.payment,
-          success() {
+      switch (parseInt(result.data.pay_type)) {
+        case PayTypeEnum.WECHAT.value:
+          // 发起微信支付
+          App.wxPayment({
+            payment: result.data.payment,
+            success() {
+              _this.getOrderDetail(orderId);
+            },
+            fail() {
+              App.showError(result.msg.success);
+            },
+          });
+          break;
+      
+        default:
+          // 余额支付/线下支付
+          App.showSuccess(result.msg.success, () => {
             _this.getOrderDetail(orderId);
-          },
-          fail() {
-            App.showError(result.msg.success);
-          },
-        });
-      }
-
-      // 余额支付
-      if (result.data.pay_type == PayTypeEnum.BALANCE.value) {
-        App.showSuccess(result.msg.success, () => {
-          _this.getOrderDetail(orderId);
-        });
+          });
+          break;
       }
 
     }, null, () => {
