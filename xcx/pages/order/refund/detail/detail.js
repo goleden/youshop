@@ -46,7 +46,7 @@ Page({
    */
   onGoodsDetail: function (e) {
     // 记录formId
-    App.saveFormId(e.detail.formId);
+    // App.saveFormId(e.detail.formId)
     wx.navigateTo({
       url: '../../../goods/index?goods_id=' + e.detail.target.dataset.id
     });
@@ -83,7 +83,7 @@ Page({
       values = e.detail.value;
 
     // 记录formId
-    App.saveFormId(e.detail.formId);
+    // App.saveFormId(e.detail.formId)
 
     // 判断是否重复提交
     if (_this.disable === true) {

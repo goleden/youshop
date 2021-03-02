@@ -1,7 +1,7 @@
 <!-- 商品组 -->
 <view class="diy-sharingGoods" style="background: {{ itemStyle.background }};">
   <view class="goods-item" wx:for="{{ dataList }}" wx:key="this" wx:for-item="dataItem">
-    <form bindsubmit="_onTargetGoods" report-submit="true">
+    <form bindsubmit="_onTargetGoods">
       <button formType="submit" class="btn-normal dis-flex" data-id="{{ dataItem.goods_id }}">
         <!-- 商品图片 -->
         <view class="goods-item_left">

@@ -322,14 +322,7 @@ App({
    * 记录formId
    */
   saveFormId(formId) {
-    let _this = this;
-    console.log('saveFormId');
-    if (formId === 'the formId is a mock one') {
-      return false;
-    }
-    _this._post_form('wxapp.formId/save', {
-      formId: formId
-    }, null, null, null, false);
+    return
   },
 
   /**

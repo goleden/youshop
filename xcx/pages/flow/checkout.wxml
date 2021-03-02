@@ -86,7 +86,7 @@
   <!-- 商品列表 -->
   <view class="m-top20">
     <view class="checkout_list" wx:for="{{ goods_list }}" wx:key="this">
-      <form bindsubmit="onTargetGoods" data-id="{{ item.goods_id }}" report-submit="true">
+      <form bindsubmit="onTargetGoods" data-id="{{ item.goods_id }}">
         <button formType="submit" class="btn-normal">
           <view class="flow-shopList dis-flex" data-index="{{index}}">
             <!-- 商品图片 -->
@@ -161,7 +161,7 @@
     <view class="dis-flex flow-all-list">
       <text class="flex-five">支付方式</text>
     </view>
-    <form bindsubmit="onSelectPayType" data-value="{{ PayTypeEnum.WECHAT.value }}" report-submit="true">
+    <form bindsubmit="onSelectPayType" data-value="{{ PayTypeEnum.WECHAT.value }}">
       <button formType="submit" class="btn-normal">
         <view class="pay-item dis-flex flex-x-between">
           <view class="item-left dis-flex flex-y-center">
@@ -178,7 +178,7 @@
         </view>
       </button>
     </form>
-    <form bindsubmit="onSelectPayType" data-value="{{ PayTypeEnum.BALANCE.value }}" report-submit="true">
+    <form bindsubmit="onSelectPayType" data-value="{{ PayTypeEnum.BALANCE.value }}">
       <button formType="submit" class="btn-normal">
         <view class="pay-item dis-flex flex-x-between">
           <view class="item-left dis-flex flex-y-center">
@@ -190,6 +190,23 @@
             </view>
           </view>
           <view class="item-right col-m" wx:if="{{ curPayType == PayTypeEnum.BALANCE.value }}">
+            <text class="iconfont icon-duihao"></text>
+          </view>
+        </view>
+      </button>
+    </form>
+    <form bindsubmit="onSelectPayType" data-value="{{ PayTypeEnum.OFFLINE.value }}">
+      <button formType="submit" class="btn-normal">
+        <view class="pay-item dis-flex flex-x-between">
+          <view class="item-left dis-flex flex-y-center">
+            <view class="item-left_icon offline">
+              <text class="iconfont icon-qiandai"></text>
+            </view>
+            <view class="item-left_text">
+              <text>{{ PayTypeEnum.OFFLINE.name }}</text>
+            </view>
+          </view>
+          <view class="item-right col-m" wx:if="{{ curPayType == PayTypeEnum.OFFLINE.value }}">
             <text class="iconfont icon-duihao"></text>
           </view>
         </view>

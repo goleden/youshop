@@ -124,7 +124,7 @@ class Order extends BaseModel
         }
         // 订单类型：单独购买
         if ($data['delivery_status'] == 10) {
-            return '已付款，待发货';
+            return '待发货';
         }
         if ($data['receipt_status'] == 10) {
             return '已发货，待收货';

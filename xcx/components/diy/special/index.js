@@ -28,7 +28,7 @@ Component({
      */
     _onTargetIndex(e) {
       // 记录formid
-      App.saveFormId(e.detail.formId);
+      // App.saveFormId(e.detail.formId)
       wx.navigateTo({
         url: '/pages/article/index'
       });
@@ -39,7 +39,7 @@ Component({
      */
     _onTargetDetail(e) {
       // 记录formid
-      App.saveFormId(e.detail.formId);
+      // App.saveFormId(e.detail.formId)
       wx.navigateTo({
         url: '/pages/article/detail/index?article_id=' + e.detail.target.dataset.id
       });

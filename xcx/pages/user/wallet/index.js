@@ -39,8 +39,6 @@ Page({
    * 跳转充值页面
    */
   onTargetRecharge(e) {
-    // 记录formId
-    App.saveFormId(e.detail.formId);
     wx.navigateTo({
       url: '../recharge/index'
     })
@@ -51,7 +49,7 @@ Page({
    */
   onTargetRechargeOrder(e) {
     // 记录formId
-    App.saveFormId(e.detail.formId);
+    // App.saveFormId(e.detail.formId)
     wx.navigateTo({
       url: '../recharge/order/index'
     })
@@ -62,7 +60,7 @@ Page({
    */
   onTargetBalanceLog(e) {
     // 记录formId
-    App.saveFormId(e.detail.formId);
+    // App.saveFormId(e.detail.formId)
     wx.navigateTo({
       url: '../wallet/balance/log'
     })

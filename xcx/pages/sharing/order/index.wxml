@@ -25,7 +25,7 @@
     <scroll-view bindscrolltolower="bindDownLoad" scroll-y style="height: {{scrollHeight}}px; width: 750rpx;margin-top:88rpx;">
       <view class="wrapper" wx:if="{{list.data.length > 0}}">
         <view class="m-top20" wx:for="{{list.data}}" wx:key="this">
-          <form bindsubmit="navigateToDetail" report-submit="true">
+          <form bindsubmit="navigateToDetail">
             <button class="btn-normal" formType="submit" data-id="{{ item.order_id }}">
               <!-- 订单状态 -->
               <view class="order-box b-f">
@@ -92,7 +92,7 @@
                     </view>
                     <!-- 拼单详情 -->
                     <view wx:if="{{item.order_type.value==20 && item.pay_status.value==20}}" class="btn-group-item">
-                      <form bindsubmit="navigateToSharingActive" report-submit="true">
+                      <form bindsubmit="navigateToSharingActive">
                         <button class="btn-normal" formType="submit" data-id="{{ item.active_id }}">
                           <view class="btn-default">拼单详情</view>
                         </button>
@@ -136,7 +136,7 @@
       </view>
       <view class="pop-content">
         <view class="pay-method">
-          <form bindsubmit="onSelectPayType" data-value="{{ PayTypeEnum.WECHAT.value }}" report-submit="true">
+          <form bindsubmit="onSelectPayType" data-value="{{ PayTypeEnum.WECHAT.value }}">
             <button formType="submit" class="btn-normal">
               <view class="pay-item dis-flex flex-x-between">
                 <view class="item-left dis-flex flex-y-center">
@@ -150,7 +150,7 @@
               </view>
             </button>
           </form>
-          <form bindsubmit="onSelectPayType" data-value="{{ PayTypeEnum.BALANCE.value }}" report-submit="true">
+          <form bindsubmit="onSelectPayType" data-value="{{ PayTypeEnum.BALANCE.value }}">
             <button formType="submit" class="btn-normal">
               <view class="pay-item dis-flex flex-x-between">
                 <view class="item-left dis-flex flex-y-center">

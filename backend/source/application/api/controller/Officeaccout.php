@@ -141,11 +141,11 @@ class Officeaccout extends Controller
         $app->menu->create($buttons);
     }
 
-    // public function test()
-    // {
-    //     $message = new \app\common\service\Message();
+    public function test()
+    {
+        $message = new \app\common\service\Message();
 
-    //     $order = \app\common\model\Order::detail('10001');
-    //     $message->sendOffiaccountTemplateMessage($order);
-    // }
+        $order = \app\common\model\Order::detail('10001');
+        $message->sendOffiaccountTemplateMessage($order);
+    }
 }

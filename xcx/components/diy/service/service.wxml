@@ -2,7 +2,7 @@
 <view class="diy-service" style="right: {{ itemStyle.right }}%; bottom: {{ itemStyle.bottom }}%;">
   <!-- 拨打电话 -->
   <block wx:if="{{ params.type == 'phone' }}">
-    <form bindsubmit="_onServiceEvent" report-submit="true">
+    <form bindsubmit="_onServiceEvent">
       <button formType="submit" class="btn-normal">
         <view class="service-icon">
           <image src="{{ params.image }}"></image>

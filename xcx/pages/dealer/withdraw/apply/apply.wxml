@@ -6,7 +6,7 @@
   </view>
 
   <view class="widget-body b-f dis-flex flex-dir-column flex-y-center">
-    <form bindsubmit="formSubmit" report-submit="true">
+    <form bindsubmit="formSubmit">
       <!-- 提现佣金 -->
       <view class="widget widget__capital m-top20 b-f dis-flex flex-dir-column">
         <view class="capital__item dis-flex flex-x-between flex-y-center">

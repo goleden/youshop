@@ -49,7 +49,7 @@ Page({
    */
   onSwitchService: function(e) {
     // 记录formId
-    App.saveFormId(e.detail.formId);
+    // App.saveFormId(e.detail.formId)
     this.setData({
       serviceType: e.detail.target.dataset.type
     });
@@ -60,7 +60,7 @@ Page({
    */
   onGoodsDetail: function(e) {
     // 记录formId
-    App.saveFormId(e.detail.formId);
+    // App.saveFormId(e.detail.formId)
     wx.navigateTo({
       url: '../../../goods/index?goods_id=' + e.detail.target.dataset.id
     });
@@ -74,7 +74,7 @@ Page({
       index = e.currentTarget.dataset.index,
       imageList = _this.data.imageList;
     // 记录formId
-    App.saveFormId(e.detail.formId);
+    // App.saveFormId(e.detail.formId)
     // 选择图片
     wx.chooseImage({
       count: 6 - imageList.length,

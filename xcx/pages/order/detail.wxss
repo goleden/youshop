@@ -146,3 +146,7 @@
 .pay-method .pay-item .item-left_icon.balance {
   color: #ff9700;
 }
+
+.pay-method .pay-item .item-left_icon.offline {
+  color: #1296db;
+}

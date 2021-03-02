@@ -86,7 +86,7 @@ Page({
       values = e.detail.value;
 
     // 记录formId
-    App.saveFormId(e.detail.formId);
+    // App.saveFormId(e.detail.formId)
 
     // 验证姓名
     if (!values.name || values.name.length < 1) {
@@ -128,7 +128,7 @@ Page({
    */
   navigationToIndex: function(e) {
     // 记录formId
-    App.saveFormId(e.detail.formId);
+    // App.saveFormId(e.detail.formId)
     // 跳转到首页
     wx.switchTab({
       url: '/pages/index/index',

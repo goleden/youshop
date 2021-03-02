@@ -40,7 +40,7 @@
           </view>
         </view>
         <view class="right goods__share">
-          <form bindsubmit="onClickShare" report-submit="true">
+          <form bindsubmit="onClickShare">
             <button formType="submit" class="share-btn dis-flex flex-dir-column">
               <text class="share__icon iconfont icon-fenxiang"></text>
               <text class="f-24">分享</text>
@@ -226,7 +226,7 @@
     <view class="pop-close dis-flex flex-x-center flex-y-center" catchtap="onTogglePopup">
       <text class="iconfont icon-shanchu f-30 col-9"></text>
     </view>
-    <form bindsubmit="onSavePoster" report-submit="true">
+    <form bindsubmit="onSavePoster">
       <view class="poster__image">
         <image mode="widthFix" src="{{ qrcode }}"></image>
       </view>

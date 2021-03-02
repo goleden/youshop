@@ -3,7 +3,7 @@
   <form bindsubmit="onSubmit" report-submit>
 
     <!-- 商品详情 -->
-    <form bindsubmit="onGoodsDetail" report-submit="true">
+    <form bindsubmit="onGoodsDetail">
       <button class="btn-normal" formType="submit" data-id="{{ detail.goods_id }}">
         <view class="goods-detail b-f dis-flex flex-dir-row">
           <view class="left">
@@ -25,7 +25,7 @@
     <!-- 服务类型 -->
     <view class="row-service b-f m-top20">
       <view class="row-title">服务类型</view>
-      <form bindsubmit="onSwitchService" report-submit="true">
+      <form bindsubmit="onSwitchService">
         <view class="service-switch dis-flex">
           <button class="btn-normal" formType="submit" data-type="10">
             <view class="switch-item {{ serviceType==10?'active':'' }}">退货退款</view>
@@ -61,7 +61,7 @@
           <image mode="aspectFill" src="{{ imagePath }}"></image>
         </view>
         <!-- 上传图片 -->
-        <form wx:if="{{ imageList.length < 6 }}" bindsubmit="chooseImage" report-submit="true">
+        <form wx:if="{{ imageList.length < 6 }}" bindsubmit="chooseImage">
           <button class="btn-normal" formType="submit">
             <view class="image-picker dis-flex flex-dir-column flex-x-center flex-y-center">
               <text class="choose__icon iconfont icon-tubiao_xiangji"></text>

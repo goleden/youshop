@@ -42,6 +42,7 @@ Page({
    * 设置顶部导航栏
    */
   setPageBar: function(page) {
+    console.log(page)
     // 设置页面标题
     wx.setNavigationBarTitle({
       title: page.params.title

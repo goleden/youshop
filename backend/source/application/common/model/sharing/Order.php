@@ -146,7 +146,7 @@ class Order extends BaseModel
         // 订单类型：单独购买
         if ($data['order_type'] == 10) {
             if ($data['delivery_status'] == 10) {
-                return '已付款，待发货';
+                return '待发货';
             }
             if ($data['receipt_status'] == 10) {
                 return '已发货，待收货';
@@ -160,7 +160,7 @@ class Order extends BaseModel
             }
             // 拼单中
             if ($data['active_status'] == 10) {
-                return '已付款，待成团';
+                return '待成团';
             }
             // 拼单成功
             if ($data['active_status'] == 20) {
