@@ -52,3 +52,9 @@ page {
 .login-btn.button-hover {
   box-shadow: inset 0 5rpx 30rpx rgba(0, 0, 0, 0.15);
 }
+
+.cancle-btn {
+  margin-top: 20rpx;
+  background: #efefef;
+  color: #000;
+}

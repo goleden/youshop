@@ -5,7 +5,7 @@
     <!-- 顶部状态栏 -->
     <view class="detail-header dis-flex flex-y-center">
       <view class="header-backdrop">
-        <image src="/images/refund-bg.png"></image>
+        <image class="image" src="/images/refund-bg.png"></image>
       </view>
       <view class="header-state f-32 col-f">
         <text>{{ order.state_text }}</text>
@@ -67,7 +67,7 @@
             <text class="col-7">物流公司：{{order.express.express_name}}</text>
           </view>
           <view class="dis-flex flow-all-list-cont">
-            <text class="col-7" selectable="{{true}}">物流单号：{{order.express_no}}</text>
+            <text class="col-7" user-select="{{true}}">物流单号：{{order.express_no}}</text>
           </view>
         </view>
         <view class="flow-arrow dis-flex">
@@ -83,10 +83,10 @@
       </view>
       <view class="order-cont dis-flex">
         <view class="order-num">
-          <text selectable="{{true}}">订单号：{{order.order_no}}</text>
+          <text class="num" user-select="{{true}}">订单号：{{order.order_no}}</text>
         </view>
         <view class="order-time">
-          <text>{{order.create_time}}</text>
+          <text class="time">{{order.create_time}}</text>
         </view>
       </view>
     </view>
@@ -190,7 +190,7 @@
       </view>
       <view class="pop-content">
         <view class="pay-method">
-          <form bindsubmit="onSelectPayType" data-value="{{ PayTypeEnum.WECHAT.value }}">
+          <form bindsubmit="onSelectPayType" data-value="{{ PayTypeEnum.WECHAT.value }}" wx:if="{{ PayTypeEnum.WECHAT.show }}">
             <button formType="submit" class="btn-normal">
               <view class="pay-item dis-flex flex-x-between">
                 <view class="item-left dis-flex flex-y-center">
@@ -204,7 +204,7 @@
               </view>
             </button>
           </form>
-          <form bindsubmit="onSelectPayType" data-value="{{ PayTypeEnum.BALANCE.value }}">
+          <form bindsubmit="onSelectPayType" data-value="{{ PayTypeEnum.BALANCE.value }}" wx:if="{{ PayTypeEnum.BALANCE.show }}">
             <button formType="submit" class="btn-normal">
               <view class="pay-item dis-flex flex-x-between">
                 <view class="item-left dis-flex flex-y-center">
@@ -218,7 +218,7 @@
               </view>
             </button>
           </form>
-          <form bindsubmit="onSelectPayType" data-value="{{ PayTypeEnum.OFFLINE.value }}">
+          <form bindsubmit="onSelectPayType" data-value="{{ PayTypeEnum.OFFLINE.value }}" wx:if="{{ PayTypeEnum.OFFLINE.show }}">
             <button formType="submit" class="btn-normal">
               <view class="pay-item dis-flex flex-x-between">
                 <view class="item-left dis-flex flex-y-center">

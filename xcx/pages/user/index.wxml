@@ -1,4 +1,4 @@
-<view class="container" wx:if="{{ userInfo.user_id > 0 }}">
+<view class="container">
   <!-- 用户信息 -->
   <view class="user">
     <view class="user-header" style="background-image: url('/images/user-bg.png');">
@@ -8,8 +8,9 @@
           <open-data class="" lang="zh_CN" type="userAvatarUrl"></open-data>
         </view>
         <view class="user-header-right">
+          <view wx:if="{{ !userInfo.user_id }}" bindtap="toLogin">登录/注册</view>
           <!-- 微信昵称 -->
-          <open-data class="user-header-cont-name" lang="zh_CN" type="userNickName"></open-data>
+          <open-data wx:if="{{ userInfo.user_id > 0 }}" class="user-header-cont-name" lang="zh_CN" type="userNickName"></open-data>
           <!-- 会员等级 -->
           <view wx:if="{{ userInfo.grade_id > 0 }}" class="user-header-grade dis-flex flex-y-center">
             <view class="user-grade_icon">

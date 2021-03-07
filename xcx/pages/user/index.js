@@ -5,9 +5,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo: {}, // 用户信息
-    orderCount: {}, // 订单数量
-    couponCount: {}, // 优惠券数量
+    userInfo: {
+      balance: '0.00',
+    }, // 用户信息
+    orderCount: {
+      comment: 0,
+      payment: 0,
+      received: 0,
+    }, // 订单数量
+    couponCount: 0, // 优惠券数量
+    menus: {},
   },
 
   /**
@@ -22,7 +29,9 @@ Page({
    */
   onShow: function() {
     // 获取当前用户信息
-    this.getUserDetail();
+    if (wx.getStorageSync('token')) {
+      this.getUserDetail();
+    }
   },
 
   /**
@@ -33,6 +42,13 @@ Page({
     App._get('user.index/detail', {}, function(result) {
       _this.setData(result.data);
     });
+  },
+
+  /**
+   * 去登录
+   */
+  toLogin: function() {
+    App.doLogin();
   },
 
   /**

@@ -16,7 +16,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    wx.removeStorageSync('token');
+    wx.removeStorageSync('user_id');
   },
 
   /**
@@ -54,7 +55,11 @@ Page({
       }
     });
   },
-
+  cancleLogin: function() {
+    wx.switchTab({
+      url: "/pages/user/index"
+    });
+  },
   /**
    * 授权成功 跳转回原页面
    */

@@ -3,11 +3,11 @@
   justify-content: space-between;
 }
 
-.order-cont .order-num text, .order-cont .time {
+.order-cont .order-num .num, .order-cont .time {
   color: #888;
 }
 
-.order-cont .order-num text, .order-cont .order-time text {
+.order-cont .order-num .num, .order-cont .order-time .time {
   color: #777;
   font-size: 26rpx;
 }
@@ -56,7 +56,7 @@
   z-index: -1;
 }
 
-.detail-header .header-backdrop image {
+.detail-header .header-backdrop .image {
   display: block;
   width: 750rpx;
   height: 140rpx;

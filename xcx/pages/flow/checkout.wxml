@@ -161,7 +161,7 @@
     <view class="dis-flex flow-all-list">
       <text class="flex-five">支付方式</text>
     </view>
-    <form bindsubmit="onSelectPayType" data-value="{{ PayTypeEnum.WECHAT.value }}">
+    <form bindsubmit="onSelectPayType" data-value="{{ PayTypeEnum.WECHAT.value }}" wx:if="{{ PayTypeEnum.WECHAT.show }}">
       <button formType="submit" class="btn-normal">
         <view class="pay-item dis-flex flex-x-between">
           <view class="item-left dis-flex flex-y-center">
@@ -178,7 +178,7 @@
         </view>
       </button>
     </form>
-    <form bindsubmit="onSelectPayType" data-value="{{ PayTypeEnum.BALANCE.value }}">
+    <form bindsubmit="onSelectPayType" data-value="{{ PayTypeEnum.BALANCE.value }}" wx:if="{{ PayTypeEnum.BALANCE.show }}">
       <button formType="submit" class="btn-normal">
         <view class="pay-item dis-flex flex-x-between">
           <view class="item-left dis-flex flex-y-center">
@@ -195,7 +195,7 @@
         </view>
       </button>
     </form>
-    <form bindsubmit="onSelectPayType" data-value="{{ PayTypeEnum.OFFLINE.value }}">
+    <form bindsubmit="onSelectPayType" data-value="{{ PayTypeEnum.OFFLINE.value }}" wx:if="{{ PayTypeEnum.OFFLINE.show }}">
       <button formType="submit" class="btn-normal">
         <view class="pay-item dis-flex flex-x-between">
           <view class="item-left dis-flex flex-y-center">

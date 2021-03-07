@@ -29,7 +29,7 @@ Page({
 
     // 支付方式
     PayTypeEnum,
-    curPayType: PayTypeEnum.WECHAT.value,
+    curPayType: PayTypeEnum.defaultPayType,
 
     address: null, // 默认收货地址
     exist_address: false, // 是否存在收货地址

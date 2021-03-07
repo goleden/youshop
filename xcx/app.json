@@ -98,5 +98,9 @@
       "desc": "你的位置信息将用于为您提供更合适您的服务"
     }
   },
+  "functionalPages": {
+    "independent": true
+  },
+  "plugins": {},
   "sitemapLocation": "sitemap.json"
 }
